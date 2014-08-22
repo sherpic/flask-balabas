@@ -12,7 +12,7 @@ so flask controllers appends automatically.
 
 ###Get started
 
-#####Install yeomen angular.
+#####Install yeoman angular.
 ```sh
   ~$ npm install -g generator-angular
 ```
