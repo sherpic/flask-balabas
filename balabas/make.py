@@ -11,6 +11,7 @@ def make_app(config="config.py"):
     app.template_folder = "app"
     mako = MakoTemplates()
     mako.init_app(app)
+    app.config.from_pyfile(config)
 
     #db = SQLAlchemy(app)
 
