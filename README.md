@@ -1,7 +1,7 @@
 flask-balabas
 =============
 
-***An angularjs boilerplate for flask / py3 with yeomen and coffeescript***
+###An angularjs boilerplate for flask / py3 with yeomen and coffeescript
 --------------------------------------------------------------------------------
 
 This skeleton uses Flask-Mako to render the angular templates,
