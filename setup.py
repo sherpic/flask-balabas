@@ -4,7 +4,7 @@ setup(
 	name='balabas',
 	version='0.0.1',
 	url='https://localhost:8080',
-	license='BSD',
+	license='MIT',
 	author='Anton Nesterov',
 	author_email='nesforge@gmail.com',
 	description='balabas',
