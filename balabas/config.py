@@ -5,7 +5,7 @@ PKG_NAME = 'balabas'
 ANGULAR_HOME = "/"
 #--------------------------------------------------------------
 # Session
-SECRET_KEY = "john fuck json but joseph cheat jinja"
+SECRET_KEY = "john fucks json but joseph cheats on jinja"
 SESSION_COOKIE_NAME = "nipple"
 CSRF_ENABLED = True
 
