@@ -1,7 +1,7 @@
 flask-balabas
 =============
 
-###An angularjs boilerplate for flask / py3 with yeomen and coffeescript
+###An angularjs boilerplate for flask / py3 with yeoman and coffeescript
 --------------------------------------------------------------------------------
 
 This skeleton uses Flask-Mako to render the angular templates,
@@ -12,7 +12,7 @@ so flask controllers appends automatically.
 
 ###Get started
 
-#####Install yeomen angular.
+#####Install yeoman angular.
 ```sh
   ~$ npm install -g generator-angular
 ```
