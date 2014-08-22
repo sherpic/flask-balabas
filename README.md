@@ -12,13 +12,13 @@ so flask controllers appends automatically.
 
 ###Get started
 
--  ####1. Install yeomen angular.
+- 1. Install yeomen angular.
 ```sh
   ~$ npm install -g generator-angular
 ```
 
 
-- ####2. Create a python3 virtual env and activate it.
+- 2. Create a python3 virtual env and activate it.
 ```sh
   ~$ virtualenv -p python3 py3-sandbox
   ~$ cd ./py3-sandbox
@@ -26,14 +26,14 @@ so flask controllers appends automatically.
 ```
 
 
-- ####3. Clone this repo and install requirements.
+- 3. Clone this repo and install requirements.
 ```sh
 (env)~$ git clone https://github.com/nesforge/flask-balabas.git
 (env)~$ cd ./flask-balabas
 (env)~$ pip install -r requirements.txt
 ```
 
-- ####4. Setup the app in develop mode and run it.
+- 4. Setup the app in develop mode and run it.
 ```sh
 (env)~$ python setup.py develop
 (env)~$ python run.py
@@ -42,13 +42,13 @@ so flask controllers appends automatically.
 ...http://localhost:5000...
 ```
 
-- ####5. Use the yeoman generator.
+- 5. Use the yeoman generator.
 ```sh
 (env)~$ cd ./balabas
 (env)~$ yo angular:route myroute --coffee
 ```
 
-- ####6. Give a star to this project.
+- 6. Give a star to this project.
 
 --------------------------------------------------------------------------------
 ****Licence: MIT****
