@@ -1,9 +1,10 @@
 
 <div ng-repeat="message in messages track by $index"
-     ng-click="closeme(message)"
-     class="alert alert-warning col-xs-6 col-xs-offset-3"
-     role="alert"
-     >
+     ng-click="close_me($index)"
+     id="flash-{{$index}}"
+     class="alert alert-warning col-xs-6 col-xs-offset-1"
+     style="position:fixed;"
+>
   {{ message }}
 </div>
 

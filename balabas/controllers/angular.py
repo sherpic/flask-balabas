@@ -5,7 +5,6 @@ from flask import (
 	flash,
 	url_for,
 	redirect,
-	render_template,
 	abort,
 	send_from_directory,
 	send_file,
@@ -94,7 +93,7 @@ def get_bower_component(filename):
 
 @app.route(PREFIX+'/flashes')
 def flashes():
-  flash('ello! ello!')
+  #flash('ello! ello!')
   messages = get_flashed_messages()
   if messages:
     return jsonify({"messages":messages})

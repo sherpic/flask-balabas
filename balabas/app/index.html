@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="showcaseApp">
+  <body ng-app="showcaseApp" ng-cloak>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -25,12 +25,22 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a ng-href="#">Home</a></li>
+          <li>
+            <a ng-href="#/basket">
+              ${icon('shopping-cart')}
+              Basket
+              <span class="badge">
+                {{basket.sum || 0 |number:2}}
+                {{basket.currency || '$' }}
+              </span>
+            </a>
+          </li>
           <li><a ng-href="#/about">About</a></li>
           <li><a ng-href="#">Contact</a></li>
         </ul>
         <h3 class="text-muted">showcase</h3>
       </div>
-
+      <hr />
       <flashes style="position:fixed;top:0;right:0;width:100%;z-index:100;"></flashes>
 
       <div ng-view=""></div>
@@ -78,8 +88,10 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/myroute.js"></script>
         <script src="scripts/directives/flashes.js"></script>
+        <script src="scripts/controllers/basket.js"></script>
+        <script src="scripts/directives/buy.js"></script>
+        <script src="scripts/services/spinner.js"></script>
         <!-- endbuild -->
 </body>
 </html>

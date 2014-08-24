@@ -7,26 +7,22 @@
  # # flashes
 ###
 angular.module('showcaseApp')
-  .directive('flashes',['$interval', '$http', '$compile', ($interval,$http,$compile)->
+  .directive('flashes',['$rootScope', ($rootScope)->
     templateUrl : '/views/flashes.html',
     restrict: 'E'
     link: (scope, element, attrs) ->
 
-      scope.messages = []
+      scope.close_me = (index) ->
+        $rootScope.messages.splice(index, 1)
+        $("#flash-#{ index }").fadeOut()
 
-      scope.closeme = (message) ->
-        index=scope.messages.indexOf(message)
-        scope.messages.splice(index, 1)
+      setInterval (->
 
-      getMessages = ->
-        $http.get('flashes')
-          .success( (data)->
-            scope.messages = scope.messages.concat( data.messages )
-          )
-          .error( (data)-> console.log(data) )
+        len = $rootScope.messages.length
+        if len
+          scope.close_me len-1
 
-      inteval = $interval(getMessages, 5000)
-
+      ),1000
 
 
   ])
