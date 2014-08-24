@@ -14,7 +14,7 @@ angular.module('showcaseApp')
 
       scope.close_me = (index) ->
         $rootScope.messages.splice(index, 1)
-        $("#flash-#{ index }").fadeOut()
+        $("#flash-#{ index }").slideUp()
 
       setInterval (->
 

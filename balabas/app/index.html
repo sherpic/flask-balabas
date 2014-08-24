@@ -23,8 +23,9 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
+        <ul class="nav nav-pills pull-right" anav>
           <li class="active"><a ng-href="#">Home</a></li>
+          <li><a ng-href="#/about">About</a></li>
           <li>
             <a ng-href="#/basket">
               ${icon('shopping-cart')}
@@ -35,8 +36,6 @@
               </span>
             </a>
           </li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
         </ul>
         <h3 class="text-muted">showcase</h3>
       </div>
@@ -92,6 +91,7 @@
         <script src="scripts/controllers/basket.js"></script>
         <script src="scripts/directives/buy.js"></script>
         <script src="scripts/services/spinner.js"></script>
+        <script src="scripts/directives/anav.js"></script>
         <!-- endbuild -->
 </body>
 </html>
