@@ -33,11 +33,8 @@ angular.module('showcaseApp')
 
     $scope.update_qty = (id, qty)->
       $http.post("/basket/#{ id }?qty=#{ qty or 1 }")
-        .success((data)->
-          $http.get('/basket/0')
-          .success((data)->
-            $rootScope.basket=data
-          )
-        )
-        .error((data)->console.log(data))
+      .success((data)->
+        get_cart()
+      )
+      .error((data)->console.log(data))
 
