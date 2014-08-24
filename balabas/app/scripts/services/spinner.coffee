@@ -15,7 +15,8 @@ angular.module('showcaseApp')
     $httpProvider.responseInterceptors.push('spinner');
 
     spinnerFunction = (data, headersGetter)->
-      return data;
+      $("div[spinner]").show();
+      data;
 
     $httpProvider.defaults.transformRequest.push(spinnerFunction);
   )
@@ -29,10 +30,12 @@ angular.module('showcaseApp')
     return (promise) ->
       promise.then(
         (response)->
+          $("div[spinner]").hide();
           getMessages();
           response;
         ,
         (response) ->
+          $("div[spinner]").hide();
           getMessages();
           $q.reject(response);
       )

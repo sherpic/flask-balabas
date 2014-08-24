@@ -77,3 +77,9 @@ body {
     border-bottom: 0;
   }
 }
+
+
+.dropdown-menu{
+			opacity:.85;
+}
+
