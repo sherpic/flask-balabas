@@ -25,6 +25,7 @@ angular.module('showcaseApp')
     getMessages = ->
       $.get('flashes', (data)->
         $rootScope.messages = $rootScope.messages.concat( data.messages )
+        $rootScope.messages = $.unique $rootScope.messages
       )
 
     return (promise) ->

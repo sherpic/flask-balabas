@@ -16,6 +16,7 @@ angular.module('showcaseApp')
         $rootScope.messages.splice(index, 1)
         $("#flash-#{ index }").slideUp()
 
+
       setInterval (->
 
         len = $rootScope.messages.length
