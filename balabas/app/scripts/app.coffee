@@ -28,6 +28,12 @@ angular
       .when '/basket',
         templateUrl: 'views/basket.html'
         controller: 'BasketCtrl'
+      .when '/login',
+        templateUrl: 'views/login.html'
+        controller: 'LoginCtrl'
+      .when '/register',
+        templateUrl: 'views/register.html'
+        controller: 'RegisterCtrl'
       .otherwise
         redirectTo: '/'
 

@@ -92,11 +92,18 @@ def get_bower_component(filename):
   return send_from_directory(app.root_path + '/bower_components/', filename)
 
 @app.route(PREFIX+'/flashes')
-def flashes():
-  #flash('ello! ello!')
+def angular_flashes():
   messages = get_flashed_messages()
   if messages:
     return jsonify({"messages":messages})
   else:
     return jsonify({"messages":[]})
+
+from flask.ext.security import current_user
+@app.route("/user/data")
+def angular_user():
+  user = {}
+  if current_user.is_authenticated():
+    user['email']=current_user.email
+  return jsonify(user)
 

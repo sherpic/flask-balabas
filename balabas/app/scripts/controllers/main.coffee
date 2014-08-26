@@ -13,10 +13,3 @@ angular.module('showcaseApp')
     $scope.five = 5
     $scope.four = 4
 
-    if not $rootScope.basket
-      $http.get('/basket/0')
-      .success((data)->
-        $rootScope.basket=data
-        $rootScope.bought = $.map(data.items, (e)-> e.id )
-      )
-

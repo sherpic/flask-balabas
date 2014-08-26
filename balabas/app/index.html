@@ -21,13 +21,14 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div class="container" init>
 
       <div class="header">
 
         <ul class="nav nav-pills pull-right" navi>
           <li class="active"><a ng-href="#">Home</a></li>
           <li><a ng-href="#/about">About</a></li>
+
           <li>
             <a ng-href="#/basket">
               ${icon('shopping-cart')}
@@ -38,9 +39,24 @@
               </span>
             </a>
           </li>
+
+          <li>
+            <a ng-href="#/login">
+                <span ng-if="!user">
+                    ${icon("log-in")}
+                </span>
+                <span ng-if="user">
+                    ${icon("log-out")} {{user.email}}
+                </span>
+            </a>
+          </li>
+
+
         </ul>
+
         <h3 class="text-muted">showcase</h3>
       </div>
+
       <hr />
       <div spinner='' style="
           position:fixed;
@@ -105,6 +121,9 @@
         <script src="scripts/services/spinner.js"></script>
         <script src="scripts/directives/spinner.js"></script>
         <script src="scripts/directives/navi.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/register.js"></script>
+        <script src="scripts/directives/init.js"></script>
         <!-- endbuild -->
 </body>
 </html>

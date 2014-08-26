@@ -1,0 +1,73 @@
+
+<!----------------------------------------------------------------------------->
+<div ng-if="!user.email" class="well col-sm-6 col-sm-offset-3">
+    <form
+    class="form-horizontal"
+    action="${ url_for_security('login') }"
+    id="login_form"
+    ng-init="loginForm.csrf_token='${csrf_token()}'"
+    >
+        <input
+        id="csrf_token"
+        name="csrf_token"
+        type="hidden"
+        ng-model="loginForm.csrf_token"
+        />
+
+        <div class='control-group'>
+			<div class="controls">
+				<input
+				type="email" id="email" name="email"
+				placeholder="@Email" class="form-control"
+				ng-model="loginForm.email"
+				/>
+		    </div>
+	    </div>
+
+        <div class='control-group'>
+		    <div class="controls">
+				<input
+				type="password" id="password" name="password"
+				placeholder="Password" class="form-control"
+				ng-model="loginForm.password"
+				/>
+		    </div>
+	    </div>
+
+	    <div class='control-group'>
+		    <div class="controls">
+		        <label for="remember">
+		            Remember
+		        <input
+				id="remember"
+				name="remember"
+				value="y"
+				type="checkbox"
+				ng-model="loginForm.remember""
+				/>
+		        </label>
+
+		    </div>
+	    </div>
+
+
+	    <div class='control-group'>
+		    <div class="controls">
+				<a class="btn btn-default btn-block" ng-click="Login()">
+			         Submit
+		        </a>
+		    </div>
+	    </div>
+
+
+    </form>
+</div>
+
+<!----------------------------------------------------------------------------->
+<div ng-if="user.email" class="well col-sm-6 col-sm-offset-3 text-center">
+    {{user.email}}
+    <button class="btn btn-default btn-block" ng-click="Logout()">
+        Logout
+    </button>
+</div>
+
