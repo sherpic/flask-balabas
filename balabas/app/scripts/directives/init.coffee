@@ -11,6 +11,15 @@ angular.module('showcaseApp')
     restrict: 'A'
     link: (scope, element, attrs) ->
 
+      for method in ['post', 'put', 'common']
+        $http.defaults.headers[method]["X-CSRFToken"]=attrs.token
+
+      $.ajaxSetup {
+          beforeSend: (xhr, settings) ->
+            if !/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)
+              xhr.setRequestHeader("X-CSRFToken", attrs.token)
+        }
+
       if not $rootScope.basket
         $http.get('/basket/0')
         .success((data)->
@@ -23,5 +32,8 @@ angular.module('showcaseApp')
         .success((data)->
           $rootScope.user=data
         )
+
+
+
   ])
 
