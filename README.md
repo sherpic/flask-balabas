@@ -10,14 +10,14 @@ so you can use flask environment in angular templates.
 MVC pattern comes from  [funkenstein/flask-mvc](https://github.com/funkenstein/flask-mvc)
 and flask controllers appends automatically.
 
-*On board:
+On board:
   - Shopping cart / Buy button
   - Spinner
   - CSRF protection
   - Login / Logout with flask-security
   - Flask flash messages for angular
 
-*Coming soon:
+Coming soon:
   - registration
   - change password
   - babel support
