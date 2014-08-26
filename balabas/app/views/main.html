@@ -4,16 +4,19 @@
  <h3>Test the buy button</h3>
 
    Add 5 units to cart :
-   <buy product="1" qty='{{five}}'>
-   </buy>
+   <button class="btn {{(bought.indexOf(1)>-1) && 'btn-success' || 'btn-default'}}" product="1" qty='{{five}}' buy>
+    ${icon('shopping-cart')}
+   </button>
    <hr/>
    Add 4 units to cart :
-   <buy product="2" qty='{{four}}'>
-   </buy>
+   <button class="btn {{(bought.indexOf(2)>-1) && 'btn-success' || 'btn-default'}}"  product="2" qty='{{four}}' buy>
+    ${icon('shopping-cart')}
+   </button>
    <hr/>
    Add 2 units to cart :
-   <buy product="9" qty='2'>
-   </buy>
+   <button class="btn {{(bought.indexOf(9)>-1) && 'btn-success' || 'btn-default'}}"  product="9" qty='2' buy>
+    ${icon('shopping-cart')}
+   </button>
 
  <h3>${icon('heart')} ${"Have fun!"}</h3>
 </div>

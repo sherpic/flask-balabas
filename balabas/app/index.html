@@ -25,13 +25,13 @@
 
       <div class="header">
 
-        <ul class="nav nav-pills pull-right" anav>
+        <ul class="nav nav-pills pull-right" navi>
           <li class="active"><a ng-href="#">Home</a></li>
           <li><a ng-href="#/about">About</a></li>
           <li>
             <a ng-href="#/basket">
               ${icon('shopping-cart')}
-              Basket
+
               <span class="badge">
                 {{basket.sum || 0 |number:2}}
                 {{basket.currency || '$' }}
@@ -103,8 +103,8 @@
         <script src="scripts/controllers/basket.js"></script>
         <script src="scripts/directives/buy.js"></script>
         <script src="scripts/services/spinner.js"></script>
-        <script src="scripts/directives/anav.js"></script>
         <script src="scripts/directives/spinner.js"></script>
+        <script src="scripts/directives/navi.js"></script>
         <!-- endbuild -->
 </body>
 </html>

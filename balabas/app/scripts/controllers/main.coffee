@@ -17,5 +17,6 @@ angular.module('showcaseApp')
       $http.get('/basket/0')
       .success((data)->
         $rootScope.basket=data
+        $rootScope.bought = $.map(data.items, (e)-> e.id )
       )
 
