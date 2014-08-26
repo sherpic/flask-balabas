@@ -1,4 +1,9 @@
-flask
+Flask
 Flask-Mako
 Flask-RESTful
+Flask-Babel
+Flask-Mail
+Flask-Security
+Flask-SQLAlchemy
+py-bcrypt
 
