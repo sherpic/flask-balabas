@@ -59,6 +59,23 @@ body {
   margin-top: 28px;
 }
 
+.dropdown-menu{
+			opacity:.85;
+}
+
+#spinner{
+	position:fixed;
+    left:0;
+	top:0;
+	z-index:9000;
+	width:200px;
+	height:3px;
+	background:#000;
+	border-radius:1px;
+}
+
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
@@ -79,7 +96,4 @@ body {
 }
 
 
-.dropdown-menu{
-			opacity:.85;
-}
 

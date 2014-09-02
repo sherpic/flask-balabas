@@ -4,37 +4,17 @@
  <h3>Test the buy button</h3>
 
    Add 5 units to cart :
-   <button class="btn {{(bought.indexOf(1)>-1) && 'btn-success' || 'btn-default'}}" product="1" qty='{{five}}' buy>
-    ${icon('shopping-cart')}
-   </button>
+  	<buy product="{{1}}" qty='{{ getProduct(1).qty || five }}' in="{{bought.indexOf(1)>-1}}"></buy>
    <hr/>
    Add 4 units to cart :
-   <button class="btn {{(bought.indexOf(2)>-1) && 'btn-success' || 'btn-default'}}"  product="2" qty='{{four}}' buy>
-    ${icon('shopping-cart')}
-   </button>
+   
+   <buy product="2" qty='{{ four }}' in="{{ bought.indexOf(2)>-1 }}"></buy>
+   
    <hr/>
-   Add 2 units to cart :
-   <button class="btn {{(bought.indexOf(9)>-1) && 'btn-success' || 'btn-default'}}"  product="9" qty='2' buy>
-    ${icon('shopping-cart')}
-   </button>
-
- <h3>${icon('heart')} ${"Have fun!"}</h3>
+   Add 9 units to cart :
+   <buy product="9" qty='{{ 9 }}' in="{{ bought.indexOf(9)>-1 }}"></buy>
+ <h3>${icon('heart')}</h3>
 </div>
 
 
-<div class="col-xs-12 marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-
-</div>
 

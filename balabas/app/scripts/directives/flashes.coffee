@@ -12,7 +12,7 @@ angular.module('showcaseApp')
     restrict: 'E'
     link: (scope, element, attrs) ->
 
-      scope.close_me = (index) ->
+      scope.closeFlash= (index) ->
         $rootScope.messages.splice(index, 1)
         $("#flash-#{ index }").slideUp()
 
@@ -21,7 +21,7 @@ angular.module('showcaseApp')
 
         len = $rootScope.messages.length
         if len
-          scope.close_me len-1
+          scope.closeFlash len-1
 
       ),1000
 

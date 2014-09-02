@@ -8,24 +8,14 @@
  # Controller of the showcaseApp
 ###
 angular.module('showcaseApp')
-  .controller 'BasketCtrl', ($scope, $rootScope, $http) ->
-
-    $scope.basket = {}
-
-    get_cart = ->
-      $http.get('/basket/0')
-      .success((data)->
-        $rootScope.basket=data
-        $scope.basket = $rootScope.basket
-      )
-      .error((data)->console.log(data))
-
-    get_cart()
+  .controller 'BasketCtrl', ($scope, $rootScope, $http, glob) ->
+    
+    glob.getCart()
 
     remove_item=(id)->
       $http.delete("/basket/#{id}?all=1")
       .success((data)->
-        get_cart()
+        glob.getCart()
       )
       .error((data)->console.log(data))
 
@@ -34,7 +24,7 @@ angular.module('showcaseApp')
     $scope.update_qty = (id, qty)->
       $http.post("/basket/#{ id }?qty=#{ qty or 1 }")
       .success((data)->
-        get_cart()
+        glob.getCart()
       )
       .error((data)->console.log(data))
 

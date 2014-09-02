@@ -47,7 +47,7 @@ def read_file(path):
       f.close()
       return string
   except FileNotFoundError:
-    return abort(404)
+    return abort(404, "File not found")
 
 HOME = app.config.get('ANGULAR_HOME', '/')
 PREFIX = (HOME.endswith('/') and HOME[:-1] or HOME)
