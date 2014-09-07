@@ -32,6 +32,7 @@ angular.module('showcaseApp')
         rowTrigger = s 'td:nth-child(1)'
         rowTrigger.off 'mousedown'
         rowTrigger.on 'mousedown', (ev)->
+          console.log ev
           selectRow(ev, this)
           
         cell = s('td')
@@ -362,7 +363,8 @@ angular.module('showcaseApp')
         
         #----------------------------------
         if key == keys.enter
-          editCell(ev,cell)
+          if !cell.find('.content').hasClass('hidden')
+            editCell(ev,cell)
         
         #----------------------------------
         #Navigation
@@ -396,6 +398,23 @@ angular.module('showcaseApp')
             if row.index() == -1
               prev = s('td').last() 
           setActive(prev)
+        
+        #^ up
+        if key == keys.up
+          row = row.prev('tr')
+          if row.index() == -1
+            row = s('tbody tr').last()
+          prev = $ row.find('td')[ cell.index() ]
+          setActive(prev)
+        
+        #_ down
+        if key == keys.down
+          row = row.next('tr')
+          if row.index() == -1
+            row = s('tbody tr').first()
+          next = $ row.find('td')[ cell.index() ]
+          setActive(next)
+           
           
         
         
