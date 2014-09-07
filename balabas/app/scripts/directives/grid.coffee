@@ -40,6 +40,10 @@ angular.module('showcaseApp')
           selectCell(ev,this)
         
         cell.on 'dblclick', (ev) -> editCell(ev, this)
+        
+        s('.edit').off 'mousedown'
+        s('.edit').on 'mousedown', (ev)->
+          ev.stopPropagation()
             
             
       
