@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    "ui.bootstrap"
   ])
   .config ($routeProvider) ->
     $routeProvider
@@ -34,6 +35,9 @@ angular
       .when '/register',
         templateUrl: 'views/register.html'
         controller: 'RegisterCtrl'
+      .when '/grid',
+        templateUrl: 'views/grid.html'
+        controller: 'GridCtrl'
       .otherwise
         redirectTo: '/'
 

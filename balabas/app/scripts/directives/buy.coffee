@@ -19,17 +19,13 @@ angular.module('showcaseApp')
       scope.buy = (qty)->
         
         $http.post("/basket/#{ scope.product }?qty=#{ qty or scope.qty or 1 }")
-        .success((data)->
-          glob.getCart()
-        )
-        .error((data)->console.log(data))
+          .success((data)-> glob.getCart())
+          .error((data)->console.log(data))
       
       scope.remove = ->
         $http.delete("/basket/#{ scope.product }?all=1")
-        .success((data)->
-          glob.getCart()
-        )
-        .error((data)->console.log(data))
+          .success((data)-> glob.getCart() )
+          .error((data)->console.log(data) )
       
 
   ])

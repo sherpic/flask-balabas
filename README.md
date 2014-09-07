@@ -16,6 +16,7 @@ On board:
   - CSRF protection
   - Login / Logout with flask-security
   - Flask flash messages for angular
+  - Grid directive
 
 Coming soon:
   - registration

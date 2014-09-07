@@ -1,6 +1,6 @@
 'use strict'
 
-describe 'Directive: anav', ->
+describe 'Directive: grid', ->
 
   # load the directive's module
   beforeEach module 'showcaseApp'
@@ -11,6 +11,6 @@ describe 'Directive: anav', ->
     scope = $rootScope.$new()
 
   it 'should make hidden element visible', inject ($compile) ->
-    element = angular.element '<anav></anav>'
+    element = angular.element '<grid></grid>'
     element = $compile(element) scope
-    expect(element.text()).toBe 'this is the anav directive'
+    expect(element.text()).toBe 'this is the grid directive'

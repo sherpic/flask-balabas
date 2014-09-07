@@ -14,17 +14,13 @@ angular.module('showcaseApp')
 
     remove_item=(id)->
       $http.delete("/basket/#{id}?all=1")
-      .success((data)->
-        glob.getCart()
-      )
-      .error((data)->console.log(data))
+        .success((data)-> glob.getCart() )
+        .error((data)->console.log(data) )
 
     $scope.remove = (id)-> remove_item(id)
 
     $scope.update_qty = (id, qty)->
       $http.post("/basket/#{ id }?qty=#{ qty or 1 }")
-      .success((data)->
-        glob.getCart()
-      )
-      .error((data)->console.log(data))
+        .success((data)-> glob.getCart() )
+        .error((data)->console.log(data) )
 

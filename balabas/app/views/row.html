@@ -1,0 +1,11 @@
+<td ng-repeat="cell in data track by $index" 
+	class="col-{{$index}} row-{{y()}}" 
+	x="{{$index}}"
+	y={{y()}} 
+	data-id="{{cell.title}}"
+	context-menu="cellMenu"
+	>
+		
+		{{cell.title}}
+
+</td>

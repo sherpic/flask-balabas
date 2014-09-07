@@ -9,7 +9,7 @@
 ###
 angular.module('showcaseApp')
   .controller 'MainCtrl', ($scope,$rootScope, $http) ->
-
+    
     $scope.five = 5
     $scope.four = 4
 

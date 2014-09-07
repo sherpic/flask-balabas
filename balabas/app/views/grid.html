@@ -1,0 +1,50 @@
+<p class="input-group">
+  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+  </span>
+</p>
+
+
+<table class="table table-bordered" grid>
+	<thead >
+		<tr>
+			<th context-menu="titleMenu">1</th>
+			<th>2</th>
+			<th>3</th>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr ng-repeat="data in grid track by $index"  data-order="{{$index}}" row>
+			
+			<td ng-repeat="cell in data track by $index" 
+				class="col-{{$index}} row-{{y()}}"
+				x="{{$index}}"
+				y={{y()}} 
+				style="padding: 0px;"
+				data-id="{{cell.id}}"
+				context-menu="cellMenu"
+			>
+				<textarea 
+					class="edit hidden form-control" 
+					ng-model="cell.title" 
+					style="min-width:100%;
+						   height:35px; 
+						   margin:0px;
+						   border-radius: 0px; 
+						   display:inline;
+						   overflow-y: hidden;
+						   "
+				></textarea>
+				<div class="content" style="padding:5px;min-height: 40px!important;">
+					{{cell.title}}	
+				</div>
+			</td>
+		</tr>
+	</tbody>
+	{{grid}}
+</table>
