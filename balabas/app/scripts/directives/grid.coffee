@@ -16,24 +16,26 @@ angular.module('showcaseApp')
         ["Buy", (scop)-> alert]
       ]
       
-      $('*').attr('tabindex', '-1') #handle it manually 
-      $('table tbody *').attr('tabindex', '0')
+      $(document).on "tbody-repeat-done", ->
+        resize =->
+          s('td').css 'width', s('tbody').width() / s('thead > tr > th ').length
+        resize()
+        $(document).resize resize
       
-      #DOMCharacterDataModified
       element.bind "DOMSubtreeModified1 DOMNodeInserted DOMNodeRemoved", ->
         if s('tr').length > $rootScope.grid.length - 2
           setTimeout (->$.event.trigger {type: "tbody-repeat-done"}), 100
         
-        s('th').css 'width', s('tbody').width() / s('thead > tr > th ').length
+        
         s('td .edit').keyup ->
             $(@).height 0 ;
             $(@).height @scrollHeight;
           
-        rowTrigger = s 'td:nth-child(1)'
-        rowTrigger.off 'mousedown'
-        rowTrigger.on 'mousedown', (ev)->
-          console.log ev
-          selectRow(ev, this)
+        #rowTrigger = s 'td:nth-child(1)'
+        #rowTrigger.off 'mousedown'
+        #rowTrigger.on 'mousedown', (ev)->
+        #  console.log ev
+        #  selectRow(ev, this)
           
         cell = s('td')
         cell.off 'mousedown'
@@ -106,17 +108,33 @@ angular.module('showcaseApp')
             .addClass('active')
             .addClass('row-selected') 
         
+      
       head = s 'thead > tr > th'
-      head.on 'mousedown',(ev)-> selectColumn(ev,this)
-      selectColumn=(ev, el)->
-        #if !ev.ctrlKey and !ev.shiftKey
+      
+      last_col_index = 0 
+      head.each (i,e)->
+        e = $ e
+        span = Number(e.attr 'colspan')
+        
+        range = [i+last_col_index-1]
+        if span
+          last_col_index = i + span
+          range = [(last_col_index - span + 1)..last_col_index]
+          if !i
+            range = [(last_col_index - span)...last_col_index]
+          
+        e.on 'click', (ev)->
+          console.log range
+          selectColumn(ev,range)
+      
+      selectColumn=(ev, range)->
         deselect()
         
-        index = head.index(el)
-        column = s "td:nth-child(#{index+1})"
-        s(".row-selected").removeClass('active row-selected')
-        s(".cell-selected").removeClass('active cell-selected')
-        column.addClass('active').addClass('col-selected')
+        for index in range
+          column = s "td:nth-child(#{index+1})"
+          s(".row-selected").removeClass('active row-selected')
+          s(".cell-selected").removeClass('active cell-selected')
+          column.addClass('active').addClass('col-selected')
         
       selectCell=(ev,el)->
         
@@ -317,7 +335,6 @@ angular.module('showcaseApp')
         setTimeout (-> s('.danger').removeClass('danger')), 600
       
       
-      
       #---------------------------------------
       # key map
       keydown_lock = false
@@ -388,6 +405,7 @@ angular.module('showcaseApp')
               next = s('td').first() 
           
           setActive(next)
+          return
         
         #<-left
         if key == keys.left
@@ -398,6 +416,7 @@ angular.module('showcaseApp')
             if row.index() == -1
               prev = s('td').last() 
           setActive(prev)
+          return
         
         #^ up
         if key == keys.up
@@ -406,6 +425,7 @@ angular.module('showcaseApp')
             row = s('tbody tr').last()
           prev = $ row.find('td')[ cell.index() ]
           setActive(prev)
+          return
         
         #_ down
         if key == keys.down
@@ -414,6 +434,8 @@ angular.module('showcaseApp')
             row = s('tbody tr').first()
           next = $ row.find('td')[ cell.index() ]
           setActive(next)
+          return
+        
            
           
         

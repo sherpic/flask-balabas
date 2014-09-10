@@ -17,6 +17,10 @@ On board:
   - Login / Logout with flask-security
   - Flask flash messages for angular
   - Grid directive
+  - Context Menu directive
+  - Copy/Paste operations for grid
+  - Keyboard bindings for grid
+  - Smart selection mechanism for grid
 
 Coming soon:
   - registration
