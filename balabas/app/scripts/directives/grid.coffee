@@ -17,17 +17,17 @@ angular.module('showcaseApp')
       ]
       
       $(document).on "tbody-repeat-done", ->
-        resize =->
-          s('td').css 'width', s('tbody').width() / s('thead > tr > th ').length
-        resize()
-        $(document).resize resize
+        #resize =->
+        #  s('td').css 'width', s('tbody').width() / s('thead > tr > th ').length
+        #resize()
+        #$(document).resize resize
       
       element.bind "DOMSubtreeModified1 DOMNodeInserted DOMNodeRemoved", ->
         if s('tr').length > $rootScope.grid.length - 2
           setTimeout (->$.event.trigger {type: "tbody-repeat-done"}), 100
         
-        
-        s('td .edit').keyup ->
+        s('td .edit').off 'keyup'
+        s('td .edit').on 'keyup', ->
             $(@).height 0 ;
             $(@).height @scrollHeight;
           
@@ -50,8 +50,8 @@ angular.module('showcaseApp')
             
             
       
-      $(document).on 'resize', ->
-        s('th').css 'width', s('tbody').width() / s('thead > tr > th ').length
+      #$(document).on 'resize', ->
+      #  s('th').css 'width', s('tbody').width() / s('thead > tr > th ').length
       
       #---------------------------------------
       
@@ -87,7 +87,9 @@ angular.module('showcaseApp')
       editCell = (ev, el)->
         s('.content').removeClass("hidden")
         s('.edit').addClass('hidden')
-        $(el).css 'width', $(el).width() 
+        
+        #$(el).find('.edit').css 'width', '100%'
+        $(el).css 'width', $(el).find('.edit').width()+5
         $(el).addClass("selected")
         
         $(el).find('.content').addClass('hidden')
